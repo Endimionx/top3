@@ -44,19 +44,13 @@ def top3_ensemble(confidence_dict, probabilistic_dict, stacked_dict=None, markov
 import pandas as pd
 
 def top3_preprocessing(df):
-    """
-    Memecah angka 4D menjadi kolom ribuan, ratusan, puluhan, satuan.
-    Asumsikan df memiliki kolom 'angka' berisi string 4 digit (misal '1234').
-    """
+    if 'angka' not in df.columns:
+        raise ValueError("Kolom 'angka' tidak ditemukan pada dataframe.")
     df = df.copy()
-
-    # Jika 'angka' berupa int, ubah jadi string 4 digit
     df['angka'] = df['angka'].astype(str).str.zfill(4)
-
-    # Ekstrak digit
+    df = df[df['angka'].str.len() == 4]
     df['ribuan'] = df['angka'].str[0].astype(int)
     df['ratusan'] = df['angka'].str[1].astype(int)
     df['puluhan'] = df['angka'].str[2].astype(int)
     df['satuan']  = df['angka'].str[3].astype(int)
-
     return df[['ribuan', 'ratusan', 'puluhan', 'satuan']]
