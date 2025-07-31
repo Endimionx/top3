@@ -1,0 +1,42 @@
+{
+  "zigzag": {
+    "description": "Digit naik turun bergantian",
+    "pattern": "up-down|down-up"
+  },
+  "naik": {
+    "description": "Urutan digit naik",
+    "pattern": "ascending"
+  },
+  "turun": {
+    "description": "Urutan digit turun",
+    "pattern": "descending"
+  },
+  "kembar": {
+    "description": "Ada 2 atau lebih digit sama",
+    "pattern": "repeated"
+  },
+  "mirror": {
+    "description": "Digit kiri & kanan mencerminkan",
+    "pattern": "mirror"
+  },
+  "selisih_konstan": {
+    "description": "Selisih antar digit konstan",
+    "pattern": "constant-diff"
+  },
+  "genap_semua": {
+    "description": "Semua digit genap",
+    "pattern": "even"
+  },
+  "ganjil_semua": {
+    "description": "Semua digit ganjil",
+    "pattern": "odd"
+  },
+  "besar_semua": {
+    "description": "Semua digit besar (≥5)",
+    "pattern": "big"
+  },
+  "kecil_semua": {
+    "description": "Semua digit kecil (<5)",
+    "pattern": "small"
+  }
+}
