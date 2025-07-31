@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 from utils import top3_preprocessing, top3_ensemble
-from models import top3_lstm_model, top3_transformer_model, top3_markov_model
+from models import top3_lstm_model, top3_transformer_model
+from top3_markov_hybrid import top6_markov_hybrid
+from top3_markov_predictor import predict_markov_order1_single
 
 def simulate_real_prediction(df):
     real = df.iloc[-1]["angka_4d"]
