@@ -1,7 +1,7 @@
 import streamlit as st
 from utils import top3_preprocessing, top3_ensemble
 from models import top3_lstm_model, top3_transformer_model
-from top3_markov_predictor import top6_markov, top6_markov_order2
+from top3_markov_hybrid import top6_markov, top6_markov_order2
 
 import pandas as pd
 
