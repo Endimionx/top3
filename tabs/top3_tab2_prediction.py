@@ -1,8 +1,6 @@
 import streamlit as st
-from top3_utils import top3_preprocessing, top3_ensemble
-from models import top3_lstm_model, top3_transformer_model
-from top3_markov_hybrid import top6_markov, top6_markov_order2
-
+from utils import top3_preprocessing, top3_ensemble
+from models import top3_lstm_model, top3_transformer_model, top3_markov_model
 import pandas as pd
 
 def render():
@@ -35,6 +33,14 @@ def render():
             st.json(detail)
 
     # Gabungkan kombinasi akhir
+    st.markdown("---")
+    st.subheader("🎲 Kombinasi Final Prediksi 4D")
+    prediksi_4d = top3_preprocessing.generate_combinations(results)
+    st.write(prediksi_4d)
+
+    # Simpan ke session
+    st.session_state["prediksi_top6"] = results
+    st.session_state["prediksi_kombinasi_4d"] = prediksi_4d    # Gabungkan kombinasi akhir
     st.markdown("---")
     st.subheader("🎲 Kombinasi Final Prediksi 4D")
     prediksi_4d = top3_preprocessing.generate_combinations(results)
